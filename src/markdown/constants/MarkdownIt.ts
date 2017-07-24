@@ -1,0 +1,1 @@
+// import { languageHighlighter} from '../EkirasMarkdownItModule';
