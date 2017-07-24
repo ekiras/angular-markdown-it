@@ -8,15 +8,9 @@ To install this library, run:
 $ npm install ekiras-markdown-it --save
 ```
 
-## Consuming your library
+## Consuming Markdown library
 
-Once you have published your library to npm, you can import your library in any Angular application by running:
-
-```bash
-$ npm install ekiras-markdown-it
-```
-
-and then from your Angular `AppModule`:
+You can configure the library by including the module in the main module as shown in the example below.
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
