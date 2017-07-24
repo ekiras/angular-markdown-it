@@ -1,4 +1,4 @@
-import { languageHighlighter} from '../';
+import { languageHighlighter} from '../EkirasMarkdownItModule';
 /**
  * This is the defaulr function for highlighting the markdown
  * @param str

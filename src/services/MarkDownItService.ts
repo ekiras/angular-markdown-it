@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { MarkdownItConfig } from '../config/MarkdownItConfig';
-import { markdown, markdownContainer } from '../';
+import { markdown, markdownContainer } from '../EkirasMarkdownItModule';
 
 import {
   DEFAULT_HIGHLIGHT_FUNCTION,
