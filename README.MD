@@ -34,11 +34,14 @@ import { EkirasMarkdownItModule } from 'ekiras-markdown-it';
   imports: [
     BrowserModule,
 
-    // Specify your library as an import and provide configuration.
+    // Import Markdown Module and enable everything
     EkirasMarkdownItModule.forRoot({
       html: true,
+      linkify: true,,
       breaks: true,
+      typographer: true
       containers: [
+        // define your containers here.
         {
           name: 'note',
           showHeading: true,
@@ -49,6 +52,10 @@ import { EkirasMarkdownItModule } from 'ekiras-markdown-it';
         }
       ]
     });
+    
+    // Import Markdown Module with default configurations
+    EkirasMarkdownItModule.forRoot({})
+
   ],
   providers: [],
   bootstrap: []
