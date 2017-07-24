@@ -17,8 +17,12 @@ export class MarkdownItService implements OnInit {
   constructor(private config: MarkdownItConfig) {
     if (config) {
       this.markdown = md({
-        breaks: this.setProperty(this.config.breaks, true),
-        html: this.setProperty(this.config.html, true),
+        html: this.setProperty(this.config.html, false),
+        xhtmlOut: this.setProperty(this.config.xhtmlOut, false),
+        breaks: this.setProperty(this.config.breaks, false),
+        langPrefix: this.setProperty(this.config.langPrefix, 'langPrefix-'),
+        linkify: this.setProperty(this.config.linkify, false),
+        typographer: this.setProperty(this.config.typographer, false),
         highlight: this.setProperty(this.config.highlight, DEFAULT_HIGHLIGHT_FUNCTION),
       });
       if (this.config.containers) {
@@ -32,8 +36,12 @@ export class MarkdownItService implements OnInit {
       }
     } else {
       this.markdown = md({
-        breaks: true,
-        html: true,
+        html: false,
+        xhtmlOut: false,
+        breaks: false,
+        langPrefix: 'language-',
+        linkify: false,
+        typographer: false,
         highlight: DEFAULT_HIGHLIGHT_FUNCTION
       });
     }

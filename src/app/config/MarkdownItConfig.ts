@@ -1,10 +1,39 @@
 /**
- *
+ * This class will be used by the EkirasMarkdownItModule to configure the markdown.
  */
 export interface MarkdownItConfig {
-    breaks: boolean;
-    html: true;
+    /**
+     * Enable HTML tags in source
+     */
+    html?: true;
+    /**
+     * Use '/' to close single tags (<br />). This is only for full CommonMark compatibility.
+     */
+    xhtmlOut?: false;
+    /**
+     * Convert '\n' in paragraphs into
+     */
+    breaks?: boolean;
+    /**
+     * Enable some language-neutral replacement + quotes beautification.
+     */
+    typographer?: false;
+    /**
+     * CSS language prefix for fenced blocks. Can be useful for external highlighters
+     */
+    langPrefix?: 'language-';
+    /**
+     * Autoconvert URL-like text to links
+     */
+    linkify?: false;
+    /**
+     * Highlighter function. Should return escaped HTML, or '' if the source string is not changed and should be escaped externaly.
+     * If result starts with <pre... internal wrapper is skipped.
+     */
     highlight?: MarkdownItHighlightConfig;
+    /**
+     * Markdown containers plugins.
+     */
     containers?: MarkdownItContainerConfig[];
 };
 
