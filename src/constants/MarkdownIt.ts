@@ -1,17 +1,13 @@
-export let md: any;
-
-export let mdContainer: any;
-export let hljs: any;
-
+import { languageHighlighter} from '../';
 /**
  * This is the defaulr function for highlighting the markdown
  * @param str
  * @param lang
  */
 export const DEFAULT_HIGHLIGHT_FUNCTION = function (str, lang) {
-  if (lang && hljs.getLanguage(lang)) {
+  if (lang && languageHighlighter.getLanguage(lang)) {
     try {
-      return '<pre class="hljs"><code>' + hljs.highlight(lang, str, true).value + '</code></pre>';
+      return '<pre class="hljs"><code>' + languageHighlighter.highlight(lang, str, true).value + '</code></pre>';
     } catch (__) { }
   }
   return '<pre class="hljs"><code>' + str + '</code></pre>';

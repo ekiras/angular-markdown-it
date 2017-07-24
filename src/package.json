@@ -1,6 +1,6 @@
 {
-  "name": "ekiras-markdown-it",
-  "version": "1.0.1",
+  "name": "test-ekiras-markdown-it",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "git@gitlab.com:ekirastogi/angular-markdown-it.git"

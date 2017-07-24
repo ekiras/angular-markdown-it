@@ -1,5 +1,4 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { MarkdownItConfig } from './config/MarkdownItConfig';
 import { MarkdownItComponent } from './components/MarkdownItComponent';
 
@@ -13,7 +12,7 @@ export function configureMarkdownService(config: MarkdownItConfig) {
 
 
 @NgModule({
-  imports: [BrowserModule],
+  imports: [],
   exports: [],
   declarations: [MarkdownItComponent],
   providers: []

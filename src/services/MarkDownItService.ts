@@ -1,13 +1,12 @@
 import { Injectable, OnInit } from '@angular/core';
 import { MarkdownItConfig } from '../config/MarkdownItConfig';
+import { markdown, markdownContainer } from '../';
+
 import {
   DEFAULT_HIGHLIGHT_FUNCTION,
   DEFAULT_CONTAINER_FUNCTION
 } from '../constants/MarkdownIt';
 
-declare let md: any;
-declare let mdContainer: any;
-declare let hljs: any;
 
 @Injectable()
 export class MarkdownItService implements OnInit {
@@ -16,7 +15,7 @@ export class MarkdownItService implements OnInit {
 
   constructor(private config: MarkdownItConfig) {
     if (config) {
-      this.markdown = md({
+      this.markdown = markdown({
         html: this.setProperty(this.config.html, false),
         xhtmlOut: this.setProperty(this.config.xhtmlOut, false),
         breaks: this.setProperty(this.config.breaks, false),
@@ -28,14 +27,14 @@ export class MarkdownItService implements OnInit {
       if (this.config.containers) {
         this.config.containers.forEach(container => {
           this.markdown.use(
-            mdContainer,
+            markdownContainer,
             container.name,
             this.setProperty(container.options, DEFAULT_CONTAINER_FUNCTION(container.name, container.class, container.showHeading))
           );
         });
       }
     } else {
-      this.markdown = md({
+      this.markdown = markdown({
         html: false,
         xhtmlOut: false,
         breaks: false,
@@ -57,7 +56,6 @@ export class MarkdownItService implements OnInit {
    */
   public render(raw: string): string {
     return `${this.markdown.render(raw)}`;
-    // return raw;
   }
 
   private setProperty(value: any, defaultValue: any): any {
