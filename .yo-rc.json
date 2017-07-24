@@ -1,0 +1,7 @@
+{
+  "generator-angular2-library": {
+    "promptValues": {
+      "gitRepositoryUrl": "git@gitlab.com:ekirastogi/angular-markdown-it.git"
+    }
+  }
+}
