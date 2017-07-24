@@ -1,6 +1,6 @@
 {
   "name": "ekiras-markdown-it",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git@gitlab.com:ekirastogi/angular-markdown-it.git"
@@ -10,7 +10,12 @@
     "email": "ekansh@ekiras.com"
   },
   "keywords": [
-    "angular"
+    "angular",
+    "angular2",
+    "angular4",
+    "markdownit",
+    "markdown",
+    "angular markdown"
   ],
   "license": "MIT",
   "bugs": {
@@ -21,6 +26,11 @@
   "peerDependencies": {
     "@angular/core": "^4.0.0",
     "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
+    "zone.js": "^0.8.4",
+    "markdown-it": "^8.3.1",
+    "markdown-it-block-embed": "0.0.3",
+    "markdown-it-block-image": "0.0.3",
+    "markdown-it-container": "^2.0.0",
+    "markdown-it-highlightjs": "^3.0.0"
   }
 }
