@@ -42,7 +42,7 @@ import { EkirasMarkdownItModule } from 'ekiras-markdown-it';
           class: 'note'
         },
         {
-          name: 'warning',
+          name: 'warning'
         }
       ]
     });
@@ -66,18 +66,20 @@ import { MarkdownItService } from 'ekiras-markdown-it';
 
 @Component({
   selector: 'app-sample-selector',
-  templateUrl: 'sample.component.html'
+  template: '<textarea cols="75" rows="15" [(ngModel)]="md" (keyup)="convertToHtml();"></textarea>'
 })
 
 export class SampleComponent implements OnInit {
   
+  md: string = null;
+
   constructor(private markdownItService: MarkdownItService) { }
 
   ngOnInit() { }
 
   
-  convertToHtml(markdown: string): string {
-    return this.markdownItService.render(markdown);
+  convertToHtml(): string {
+    return this.markdownItService.render(this.md);
   }
 }
 
