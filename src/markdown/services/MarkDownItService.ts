@@ -1,16 +1,11 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { MarkdownItConfig } from '../config/MarkdownItConfig';
-// import { markdown, markdownContainer } from '../EkirasMarkdownItModule';
-// declare const require;
-// let md = require('markdown-it')();
-import md from 'markdown-it';
-declare const mdContainer;
-let hljs;
 
-// import {
-//   DEFAULT_HIGHLIGHT_FUNCTION,
-//   DEFAULT_CONTAINER_FUNCTION
-// } from '../constants/MarkdownIt';
+
+import md from 'markdown-it';
+import mdContainer from 'markdown-it-container';
+import highlightjs from 'markdown-it-highlightjs';
+import hljs from 'highlight.js';
 
 /**
  * This is the defaulr function for highlighting the markdown
@@ -20,7 +15,7 @@ let hljs;
 export const DEFAULT_HIGHLIGHT_FUNCTION = function (str, lang) {
   if (lang && hljs.getLanguage(lang)) {
     try {
-      return '<pre class="hljs"><code>' + hljs.highlight(lang, str, true).value + '</code></pre>';
+      return '<pre class="hljs"><code>' + highlightjs.highlight(lang, str, true).value + '</code></pre>';
     } catch (__) { }
   }
   return '<pre class="hljs"><code>' + str + '</code></pre>';
@@ -42,10 +37,8 @@ export const DEFAULT_CONTAINER_FUNCTION = function (name: string, cssClass: stri
 
     render: function (tokens, idx) {
       if (tokens[idx].nesting === 1) {
-        // opening tag
         return `<div class="${cssClass ? cssClass : name}"> ${showHeading ? '<b>' + name + '</b>' : ''}`;
       } else {
-        // closing tag
         return '</div>';
       }
     }
@@ -54,7 +47,7 @@ export const DEFAULT_CONTAINER_FUNCTION = function (name: string, cssClass: stri
 
 
 @Injectable()
-export class MarkdownItService implements OnInit {
+export class MarkdownItService {
 
   private markdown;
 
@@ -72,9 +65,13 @@ export class MarkdownItService implements OnInit {
       if (this.config.containers) {
         this.config.containers.forEach(container => {
           this.markdown.use(
-            md,
+            mdContainer,
             container.name,
-            this.setProperty(container.options, DEFAULT_CONTAINER_FUNCTION(container.name, container.class, container.showHeading))
+            this.setProperty(container.options, DEFAULT_CONTAINER_FUNCTION(
+              container.name,
+              container.class,
+              this.setProperty(container.showHeading, true)
+            ))
           );
         });
       }
@@ -91,9 +88,6 @@ export class MarkdownItService implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-
-  }
 
   /**
    * The method will take a string as an input and convert it to markdown.
