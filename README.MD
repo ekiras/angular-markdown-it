@@ -2,12 +2,32 @@
 
 ## Installation
 
-To install this library, run:
+To install this library, configure and  run:
 
+1. Install Plugin
 ```bash
 $ npm install ekiras-markdown-it --save
 ```
+2. Install Dependencies
+Install Dependencies for this dependency
+```bash
+npm install highlightjs markdown-it markdown-it-block-embed markdown-it-block-image markdown-it-container markdown-it-highlightjs --save
+```
+3. Configure scripts and css
+Open `.angular-cli.json` and add the following 
 
+In `scripts : []` add the following 
+```
+        "../node_modules/highlightjs/highlight.pack.js",
+        "assets/js/markdown-bundle.js",
+        "assets/js/markdownit.js"
+```
+In `styles: []` add the following 
+```
+        "./assets/css/highlighter.css",
+        "./assets/css/markdown.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+```
 ## Consuming Markdown library
 
 You can configure the library by including the module in the main module as shown in the example below.
