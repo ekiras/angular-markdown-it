@@ -6,7 +6,7 @@ To install this library, configure and  run:
 
 1. Install Plugin
 ```bash
-$ npm install ekiras-markdown-it --save
+$ npm install @ekiras/markdown-it --save
 ```
 2. Install Dependencies
 Install Dependencies for this dependency
@@ -33,7 +33,7 @@ In `styles: []` add the following
 
 You can configure the library by including the module in the main module as shown in the example below.
 
-```typescript
+```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -54,7 +54,7 @@ import { EkirasMarkdownItModule } from 'ekiras-markdown-it';
       html: true,
       linkify: true,
       breaks: true,
-      typographer: true
+      typographer: true,
       containers: [
         // define your containers here.
         {
@@ -66,8 +66,7 @@ import { EkirasMarkdownItModule } from 'ekiras-markdown-it';
           name: 'warning'
         }
       ]
-    });
-    
+    }),    
     // Import Markdown Module with default configurations
     EkirasMarkdownItModule.forRoot({})
 
