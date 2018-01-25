@@ -1,6 +1,6 @@
 {
-  "name": "ekiras-markdown-it",
-  "version": "1.0.3",
+  "name": "@ekiras/markdown-it",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "git@gitlab.com:ekirastogi/angular-markdown-it.git"
@@ -15,7 +15,8 @@
     "angular4",
     "markdownit",
     "markdown",
-    "angular markdown"
+    "angular markdown",
+    "markdown to html"
   ],
   "license": "MIT",
   "bugs": {

@@ -22,7 +22,7 @@
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
     "flatModuleOutFile": "ekiras-markdown-it.js",
-    "flatModuleId": "ekiras-markdown-it"
+    "flatModuleId": "@ekiras/markdown-it"
   },
   "files": [
     "./index.ts"

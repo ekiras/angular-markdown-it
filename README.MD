@@ -28,6 +28,7 @@ In `styles: []` add the following
         "./assets/css/markdown.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 ```
+
 ## Consuming Markdown library
 
 You can configure the library by including the module in the main module as shown in the example below.
@@ -51,7 +52,7 @@ import { EkirasMarkdownItModule } from 'ekiras-markdown-it';
     // Import Markdown Module and enable everything
     EkirasMarkdownItModule.forRoot({
       html: true,
-      linkify: true,,
+      linkify: true,
       breaks: true,
       typographer: true
       containers: [
@@ -73,10 +74,16 @@ import { EkirasMarkdownItModule } from 'ekiras-markdown-it';
   ],
   providers: [],
   bootstrap: []
-})
+});
 export class AppModule { }
 ```
 
+ Adding Custom Containers
+    [Markdown Containers](https://github.com/markdown-it/markdown-it-container)
+    You can add any number of markdown containers as you want by just adding them to the 
+    containers array[]
+    
+    
 Once the Module is imported, you can use the **MarkdownItService** to convert the markdown to html.
 
 ```ts

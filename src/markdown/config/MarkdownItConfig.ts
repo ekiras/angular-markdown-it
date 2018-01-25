@@ -5,11 +5,11 @@ export interface MarkdownItConfig {
     /**
      * Enable HTML tags in source
      */
-    html?: true;
+    html?: boolean;
     /**
      * Use '/' to close single tags (<br />). This is only for full CommonMark compatibility.
      */
-    xhtmlOut?: false;
+    xhtmlOut?: boolean;
     /**
      * Convert '\n' in paragraphs into
      */
@@ -17,15 +17,15 @@ export interface MarkdownItConfig {
     /**
      * Enable some language-neutral replacement + quotes beautification.
      */
-    typographer?: false;
+    typographer?: boolean;
     /**
      * CSS language prefix for fenced blocks. Can be useful for external highlighters
      */
-    langPrefix?: 'language-';
+    langPrefix?: string;
     /**
-     * Autoconvert URL-like text to links
+     * Auto convert URL-like text to links
      */
-    linkify?: false;
+    linkify?: boolean;
     /**
      * Highlighter function. Should return escaped HTML, or '' if the source string is not changed and should be escaped externaly.
      * If result starts with <pre... internal wrapper is skipped.
